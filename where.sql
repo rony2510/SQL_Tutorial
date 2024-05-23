@@ -19,7 +19,8 @@ WHERE condition;
 
 
 -- Text Fields vs. Numeric Fields
--- SQL requires single quotes around text values (most database systems will also allow double quotes).
+-- SQL requires single quotes around text values (most database systems
+-- will also allow double quotes).
 -- However, numeric fields should not be enclosed in quotes:
 
 SELECT * FROM Customers
