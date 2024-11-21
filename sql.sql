@@ -1,61 +1,79 @@
+-- create a database "db"
 CREATE DATABASE db;
 
 
 
-
+-- drop the database "db"
 DROP DATABASE db;
 
 
 
+-- show all databases
+SHOW DATABASES;
 
-CREATE TABLE tb(
+
+
+-- create table with "id","name" column
+CREATE TABLE tbl(
 	id int,
     name varchar(255)
 );
 
 
 
-
-DROP TABLE tb;
-
-
-
-
-TRUNCATE TABLE tb2;
+-- drop table "tbl". it completely removes from the database
+DROP TABLE tbl;
 
 
 
+-- delete entries from the table "tbl2". it keeps the table but deletes entries
+TRUNCATE TABLE tbl2;
 
+
+
+--  show everything from "categories"
 SELECT * FROM categories;
 
 
 
-
+-- show everything from "categories" where "categoryid%2=0"
 SELECT * FROM categories
 WHERE categoryid%2=0;
 
 
 
-
+-- show everything from "customers" in "customerid" descending
 SELECT * FROM customers
 ORDER BY customerid DESC;
 
 
 
+-- show everything from "categories" where "categoryid%2=0" and city is "London"
+SELECT * FROM customers WHERE customerid%2=0 AND city="London";
 
+
+
+SELECT * FROM customers WHERE customerid%2=0 AND (city="London" OR country="Germany") ORDER BY customerid DESC;
+
+
+
+-- select distinct city from customers
 SELECT DISTINCT city FROM customers;
 
 
 
-
-SELECT DISTINCT city,country
-FROM customers;
-
-
-
-
+-- return total count of distinct city
 SELECT COUNT(DISTINCT city) FROM customers;
 
+
+
+SELECT COUNT(DISTINCT city) FROM customers WHERE CustomerID%2=0;
+
+
+
+-- show distinct city with country
+SELECT DISTINCT city,country
+FROM customers;
 
 
 
@@ -64,17 +82,20 @@ WHERE country="germany";
 
 
 
-
+-- show address and city
 SELECT address,city FROM customers
 WHERE country="germany";
 
 
 
-
+-- by default ORDER BY is ASC
 SELECT address,city FROM customers
 WHERE country="germany"
 ORDER BY city;
 
+
+
+SELECT Address,City FROM customers ORDER BY City DESC;
 
 
 
@@ -84,7 +105,7 @@ ORDER BY city DESC;
 
 
 
-
+-- first city ASC then address DESC
 SELECT address,city from customers
 WHERE country="germany"
 order BY city ASC, address DESC;
@@ -94,7 +115,6 @@ order BY city ASC, address DESC;
 
 SELECT * FROM customers
 WHERE country="uk" and city="london";
-
 
 
 
@@ -108,39 +128,49 @@ WHERE country="uk" or country="spain" or country LIKE "A%";
 
 
 
-
+-- NOT IN London
 SELECT * FROM customers
 WHERE city NOT IN ("london");
 
 
 
-
+-- customerid inclusive(5<=id<=10)
 SELECT * FROM customers
 WHERE customerid BETWEEN 5 AND 10;
 
 
 
-
+-- contactname starts with "C"
 SELECT * FROM suppliers
-WHERE contactname like "C_%";
+WHERE contactname like "C%";
 
 
 
+-- contactname starts with "C" or ends with "B"
+SELECT * FROM customers
+WHERE CustomerName LIKE "B%" OR CustomerName LIKE "%B";
 
+
+
+-- contactname (starts with "C" and min length 2) or starts with "Pe"
 SELECT * FROM suppliers
 WHERE contactname like "C_%" or contactname LIKE "Pe%";
 
 
 
-
+-- show 5 results
 SELECT * FROM customers LIMIT 5;
 
 
 
-
+-- show 3 results
 SELECT * FROM products WHERE
 price<20 LIMIT 3;
 
+
+
+-- column name as Cname
+SELECT CustomerName AS Cname FROM customers;
 
 
 
@@ -154,12 +184,15 @@ SELECT COUNT(DISTINCT supplierid) AS cnt FROM products;
 
 
 
-
 INSERT INTO blog
 (title,content) VALUES ("please","essay");
 
+
+
 INSERT INTO blog
 VALUES(20,"pray","quite");
+
+
 
 INSERT INTO blog
 (title,content)
@@ -176,7 +209,6 @@ VALUES("yes","abc"),
 
 
 This SQL keywords reference contains the reserved words in SQL.
-
 SQL Keywords
 Keyword	Description
 ADD	Adds a column in an existing table
