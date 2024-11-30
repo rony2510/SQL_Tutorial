@@ -1,3 +1,32 @@
+-- Written Order of SQL Clauses
+-- When writing SQL queries, the order typically looks like this:
+
+SELECT column_list
+FROM table_name
+[WHERE condition]
+[GROUP BY column_list]
+[HAVING condition]
+[ORDER BY column_list]
+[LIMIT n];
+
+
+
+
+
+
+
+
+SELECT [column_name] FROM [table_name]
+WHERE [condition] ORDER BY [column_name] [ASC|DESC]
+LIMIT [number];
+
+
+
+
+
+
+
+
 -- create a database "db"
 CREATE DATABASE db;
 

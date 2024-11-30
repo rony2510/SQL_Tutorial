@@ -56,3 +56,24 @@ WHERE OrderDate BETWEEN #07/01/1996# AND #07/31/1996#;
 
 SELECT * FROM Orders
 WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';
+
+
+
+
+
+
+-- Explanation:
+-- Single Quotes for Dates: Dates in SQL should be enclosed in single quotes (') to be interpreted correctly as string literals.
+-- BETWEEN: Used to filter rows where the value falls within a specified range, inclusive.
+-- ORDER BY: Specifies sorting of results by patient_id in descending order (DESC).
+-- This query retrieves rows from the admissions table where:
+
+-- patient_id is between 10 and 50 (inclusive), and
+-- admission_date is between June 24, 2018, and December 24, 2018 (inclusive),
+-- The results are sorted in descending order of patient_id.
+
+SELECT * 
+FROM admissions
+WHERE (patient_id BETWEEN 10 AND 50) 
+  AND (admission_date BETWEEN '2018-06-24' AND '2018-12-24')
+ORDER BY patient_id DESC;
