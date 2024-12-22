@@ -32,13 +32,28 @@ CREATE DATABASE db;
 
 
 
+
+
+
+
+
+
+
 -- drop the database "db"
 DROP DATABASE db;
 
 
 
+
+
+
+
+
 -- show all databases
 SHOW DATABASES;
+
+
+
 
 
 
@@ -50,13 +65,29 @@ CREATE TABLE tbl(
 
 
 
--- drop table "tbl". it completely removes from the database
+
+
+
+-- drop table "tbl". it completely removes TABLE from the database
 DROP TABLE tbl;
+
+
+
+
 
 
 
 -- delete entries from the table "tbl2". it keeps the table but deletes entries
 TRUNCATE TABLE tbl2;
+
+
+
+-- only insert data in the "CustomerName", "City", and "Country" 
+-- columns (CustomerID will be updated automatically):
+INSERT INTO Customers (CustomerName, City, Country)
+VALUES ('Cardinal', 'Stavanger', 'Norway');
+
+
 
 
 
